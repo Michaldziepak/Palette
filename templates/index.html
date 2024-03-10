@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+{% from 'bootstrap5/form.html' import render_form %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pallete picker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+  .circle-container {
+    white-space: nowrap; /* Zapobiega przerywaniu wiersza */
+    display: flex;
+}
+
+  .circle {
+    display: inline-block; /* Wyświetla elementy obok siebie */
+    margin-right: 10px; /* Dodaje odstęp między kołami */
+    width: 100px; /* Set the width and height to determine the size of the circle */
+    height: 100px;
+    border-radius: 50%; /* Make the border radius 50% to create a circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+    body {
+        background-image: url("{{ url_for('static', filename='palette.jpg') }}");
+        background-size: cover; /* Dostosowanie obrazu do rozmiaru okna przeglądarki */
+        background-repeat: no-repeat; /* Nie powtarzaj obrazu tła */
+    }
+    .form-container {
+        padding: 20px; /* Add padding to create space around the form */
+    }
+
+    input[type="file"] {
+        width: 50%; /* Set width to 50% */
+    }
+        /* Style for error message */
+        .invalid-feedback {
+        color: rgb(195, 255, 0); /* Set color to red */
+        font-size: 20px; /* Set font size */
+        margin-top: 5px; /* Add some top margin */
+    }
+</style>
+</head>
+
+<body>
+  
+
+  <div class="form-container" style="  margin-top: 250px;
+  margin-left: 500px;;">
+  <h1 style="color: white">Check photo palette</h1>
+    {{ render_form(form, novalidate=True) }}
+    <div class="invalid-feedback">
+      {% for error in form.errors %}
+          {{ error }}
+      {% endfor %}
+
+  </div><h2 style="color:white">{% if colorlist!=[] %} These are 5 most popular colors in this photo {%endif %}</h2>
+  <div class="circle-container">
+    
+    <div class="circle" style="background-color: {{colorlist[0]}};">{{colorlist[0]}}</div>
+    <div class="circle" style="background-color: {{colorlist[1]}};">{{colorlist[1]}}</div>
+    <div class="circle" style="background-color: {{colorlist[2]}};">{{colorlist[2]}}</div>
+    <div class="circle" style="background-color: {{colorlist[3]}};">{{colorlist[3]}}</div>
+    <div class="circle" style="background-color: {{colorlist[4]}};">{{colorlist[4]}}</div>
+</div>
+  </div>
+
+</body>
+
+</html>
