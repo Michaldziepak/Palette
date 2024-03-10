@@ -9,37 +9,37 @@
 
 <style>
   .circle-container {
-    white-space: nowrap; /* Zapobiega przerywaniu wiersza */
+    white-space: nowrap; 
     display: flex;
 }
 
   .circle {
-    display: inline-block; /* Wyświetla elementy obok siebie */
-    margin-right: 10px; /* Dodaje odstęp między kołami */
-    width: 100px; /* Set the width and height to determine the size of the circle */
+    display: inline-block; 
+    margin-right: 10px; 
+    width: 100px; 
     height: 100px;
-    border-radius: 50%; /* Make the border radius 50% to create a circular shape */
+    border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center
 }
     body {
         background-image: url("{{ url_for('static', filename='palette.jpg') }}");
-        background-size: cover; /* Dostosowanie obrazu do rozmiaru okna przeglądarki */
-        background-repeat: no-repeat; /* Nie powtarzaj obrazu tła */
+        background-size: cover; 
+        background-repeat: no-repeat; 
     }
     .form-container {
-        padding: 20px; /* Add padding to create space around the form */
+        padding: 20px; 
     }
 
     input[type="file"] {
-        width: 50%; /* Set width to 50% */
+        width: 50%; 
     }
-        /* Style for error message */
+
         .invalid-feedback {
-        color: rgb(195, 255, 0); /* Set color to red */
-        font-size: 20px; /* Set font size */
-        margin-top: 5px; /* Add some top margin */
+        color: rgb(195, 255, 0); 
+        font-size: 20px; 
+        margin-top: 5px; 
     }
 </style>
 </head>

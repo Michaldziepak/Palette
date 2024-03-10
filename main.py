@@ -31,9 +31,6 @@ def home():
         # Convert the image to RGB (if it's not already in RGB mode)
         image = image.convert('RGB')
 
-        # Resize the image to reduce processing time if necessary
-        # image = image.resize((width, height))
-
         # Convert the image to a numpy array
         image_array = np.array(image)
 
